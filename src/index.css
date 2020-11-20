@@ -4,6 +4,33 @@ body {
   overflow: hidden;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.header h1 {
+  font-size: 1.25rem;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.icon {
+  font-size: 2rem;
+  color: red;
+  margin: 0 1rem;
+}
+
 .map {
   width: 100vw;
   height: 100vh;
@@ -15,6 +42,12 @@ body {
   color: red;
 }
 
+.location-icon:hover {
+  color: rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,0,0,0.6);
+  border-radius: 50%;
+}
+
 .loader {
   display: flex;
   flex-direction: column;
@@ -24,11 +57,11 @@ body {
 }
 
 .loader img {
-  width: 400px;
+  width: 20rem;
 }
 
 .loader h1 {
-  margin-top: -100px;
+  margin-top: -7rem;
 }
 
 .location-info {
@@ -38,31 +71,13 @@ body {
   position: fixed;
   bottom: 0;
   width: 100vw;
-  background: rgba(0,0,0,0.6);
+  background: rgba(178,34,34,0.7);
   color: white;
-  padding: .5rem 0;
+  padding: .25rem 0;
 }
 
 .location-info p {
   margin-right: 2rem;
   margin-top: .5rem;
   margin-bottom: 0;
-}
-
-.header {
-  padding: 10px;
-  background: firebrick;
-  color: white;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 100;
-}
-
-.header h1 {
-  font-size: 25px;
-  padding: 0;
-  margin: 0;
-  text-align: center;
 }
