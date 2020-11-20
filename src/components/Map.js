@@ -2,7 +2,20 @@ import GoogleMapReact from 'google-map-react'
 import LocationMarker from './LocationMarker'
 
 // Takes in centerpoint of map and zoom level
-const Map = ({ center, zoom}) => {
+const Map = ({ eventData, center, zoom}) => {
+    const markers = eventData.map(marker => {
+        if(marker.categories[0].id === 8) {
+            return (
+                <LocationMarker 
+                    key={marker.geometries.date}
+                    lat={marker.geometries[0].coordinates[1]} 
+                    lng={marker.geometries[0].coordinates[0]}
+                />
+            )
+        }
+        return null
+    })
+
     return (
         <div className='map'>
             <GoogleMapReact
@@ -10,7 +23,7 @@ const Map = ({ center, zoom}) => {
                 defaultCenter={ center }
                 defaultZoom={ zoom }
             >
-                    <LocationMarker lat={center.lat} lng={center.lng} />
+                {markers}
             </GoogleMapReact>
         </div>
     )
