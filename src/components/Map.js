@@ -1,8 +1,9 @@
 import GoogleMapReact from 'google-map-react'
 import LocationMarker from './LocationMarker'
 
-// Takes in centerpoint of map and zoom level
+// Takes in centerpoint of map, zoom level & location data
 const Map = ({ eventData, center, zoom}) => {
+    // Uses eventData prop to render fire locations on map
     const markers = eventData.map(marker => {
         if(marker.categories[0].id === 8) {
             return (
