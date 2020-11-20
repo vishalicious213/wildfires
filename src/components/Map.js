@@ -1,16 +1,21 @@
+import { useState } from 'react'
 import GoogleMapReact from 'google-map-react'
 import LocationMarker from './LocationMarker'
+import LocationInfoBox from './LocationInfoBox'
 
 // Takes in centerpoint of map, zoom level & location data
 const Map = ({ eventData, center, zoom}) => {
+    const [locationInfo, setLocationInfo] = useState(null)
+
     // Uses eventData prop to render fire locations on map
     const markers = eventData.map(marker => {
         if(marker.categories[0].id === 8) {
             return (
                 <LocationMarker 
-                    key={marker.geometries.date}
+                    key={marker.id}
                     lat={marker.geometries[0].coordinates[1]} 
                     lng={marker.geometries[0].coordinates[0]}
+                    onClick={(() => setLocationInfo({ id: marker.id, title: marker.title}))}
                 />
             )
         }
@@ -26,6 +31,7 @@ const Map = ({ eventData, center, zoom}) => {
             >
                 {markers}
             </GoogleMapReact>
+            {locationInfo && <LocationInfoBox info={locationInfo} />}
         </div>
     )
 }
