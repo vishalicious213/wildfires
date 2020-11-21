@@ -16,7 +16,7 @@ const Map = ({ eventData, center, zoom}) => {
                     lat={marker.geometries[0].coordinates[1]} 
                     lng={marker.geometries[0].coordinates[0]}
                     onClick={(() => setLocationInfo({ id: marker.id, title: marker.title,
-                        date: marker.geometries[0].date }))}
+                        date: marker.geometries[0].date.substring(0, 10) }))}
                 />
             )
         }
